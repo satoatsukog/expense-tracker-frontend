@@ -1,67 +1,55 @@
-# Expense Tracker — Frontend
+# Expense Tracker: Frontend
 
-Static **HTML + CSS + JavaScript** UI for the [Python API](../python/) in the `python` folder.
+Browser interface for the [Expense Tracker API](https://github.com/satoatsukog/expense-tracker). Plain HTML, CSS and JavaScript, no build step and no framework.
+
+<!-- After deploying, add here: **Live demo:** https://your-frontend-url -->
 
 ## Features
 
-- Add expenses (form)
-- List with category and date filters
+- Add an expense with a form
+- List expenses with category and date filters
 - Monthly report
-- Delete expense
-- Export CSV (link to API)
-- API connection status indicator
+- Delete an expense
+- Export to CSV
+- Indicator that shows whether the API is reachable
 
-## Requirements
+## Tech stack
 
-1. **Backend running** on `http://127.0.0.1:8000`:
+HTML5, CSS3, JavaScript (`fetch` API)
 
-   ```bash
-   cd ../python
-   source .venv/bin/activate
-   ./scripts/run.sh
-   ```
+## Run locally
 
-2. **Serve this folder over HTTP** (do not open `index.html` as `file://` — browsers block API calls).
+1. Start the backend from the [expense-tracker](https://github.com/satoatsukog/expense-tracker) repository. It listens on `http://127.0.0.1:8000`.
+2. Serve this folder over HTTP. Opening `index.html` as `file://` does not work, because the browser blocks the API calls.
 
-   ```bash
-   cd /Users/david/Desktop/portfolio/html2
-   python3 -m http.server 5500
-   ```
-
-3. Open in the browser: **http://127.0.0.1:5500**
-
-## Project structure
-
-```
-html2/
-├── index.html
-├── css/styles.css
-├── js/
-│   ├── config.js   # API URL
-│   ├── api.js      # fetch helpers
-│   └── app.js      # UI logic
-└── README.md
+```bash
+git clone https://github.com/satoatsukog/expense-tracker-frontend.git
+cd expense-tracker-frontend
+python3 -m http.server 5500
 ```
 
-## Change API URL
+3. Open http://127.0.0.1:5500
 
-Edit `js/config.js`:
+## Configuration
+
+The API address is set in `js/config.js`:
 
 ```js
 const API_BASE_URL = "http://127.0.0.1:8000";
 ```
 
-## Publish to GitHub
+Change it if the backend runs somewhere else.
 
-This folder can be its own repository or live next to `python` in a monorepo.
+## Project structure
 
-```bash
-cd html2
-git init
-git add .
-git commit -m "Add expense tracker frontend"
-git remote add origin https://github.com/YOUR_USERNAME/expense-tracker-frontend.git
-git push -u origin main
+```
+expense-tracker-frontend/
+├── index.html
+├── css/styles.css
+└── js/
+    ├── config.js   # API URL
+    ├── api.js      # fetch helpers
+    └── app.js      # UI logic
 ```
 
 ## License
