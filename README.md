@@ -4,6 +4,8 @@ Browser interface for the [Expense Tracker API](https://github.com/satoatsukog/e
 
 <!-- After deploying, add here: **Live demo:** https://your-frontend-url -->
 
+![Expense Tracker UI](docs/screenshot.png)
+
 ## Features
 
 - Add an expense with a form
